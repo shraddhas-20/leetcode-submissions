@@ -1,0 +1,19 @@
+1
+2class RecentCounter {
+3
+4    Queue<Integer> q;
+5
+6    public RecentCounter() {
+7        q = new LinkedList<>();
+8    }
+9
+10    public int ping(int t) {
+11        q.offer(t);
+12
+13        while (q.peek() < t - 3000) {
+14            q.poll();
+15        }
+16
+17        return q.size();
+18    }
+19}
