@@ -1,0 +1,32 @@
+1class Solution {
+2public:
+3    int compress(vector<char>& chars) {
+4        int n = chars.size();
+5        int idx = 0;
+6        int i;
+7
+8
+9        for(i=0; i<n ;i++){
+10        int count =0;
+11        char curr =chars[i];
+12
+13        while(i<n && chars[i] == curr ){
+14            count++ ; i++;
+15            }
+16        if(count ==1){
+17            chars[idx++] = curr;
+18        }
+19        else{
+20            chars[idx++] = curr;
+21            string str = to_string(count);
+22            for(char dig: str){
+23                chars[idx++] = dig;
+24            }
+25        }
+26        i--;
+27        } 
+28          chars.resize(idx);
+29        return idx;
+30    }
+31  
+32};
