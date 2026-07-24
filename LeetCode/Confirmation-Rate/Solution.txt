@@ -1,0 +1,20 @@
+1# Write your MySQL query statement below
+2SELECT
+3    s.user_id,
+4    ROUND(
+5        AVG(
+6            CASE 
+7                WHEN c.action = 'confirmed' THEN 1.00
+8                ELSE 0
+9            END
+10        ),
+11        2
+12    ) confirmation_rate
+13FROM
+14    Signups s
+15LEFT JOIN
+16    Confirmations c
+17    ON
+18    s.user_id = c.user_id
+19GROUP BY
+20    s.user_id
