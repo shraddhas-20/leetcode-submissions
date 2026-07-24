@@ -1,0 +1,20 @@
+1class Solution {
+2public:
+3    bool canConstruct(string ransomNote, string magazine) {
+4        
+5        unordered_map<char,int> charFreq;
+6
+7        if(ransomNote.size() > magazine.size()) return false;
+8
+9        for(char ch:magazine){
+10            charFreq[ch]++;   
+11        }
+12        for(char ch:ransomNote){
+13            if(charFreq[ch] > 0){
+14                charFreq[ch]--;
+15            }
+16            else return false;
+17        }
+18        return true;
+19    }
+20};
