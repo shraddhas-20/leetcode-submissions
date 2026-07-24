@@ -1,0 +1,28 @@
+1/**
+2 * @param {integer} init
+3 * @return { increment: Function, decrement: Function, reset: Function }
+4 */
+5var createCounter = function(init) {
+6     const initial = init;
+7
+8    return {
+9        increment() {
+10            return ++init;
+11        },
+12
+13        decrement() {
+14            return --init;
+15        },
+16
+17        reset() {
+18            init = initial;
+19            return init;
+20        }
+21    };
+22};
+23/**
+24 * const counter = createCounter(5)
+25 * counter.increment(); // 6
+26 * counter.reset(); // 5
+27 * counter.decrement(); // 4
+28 */
